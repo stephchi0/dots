@@ -53,7 +53,19 @@ public class DotsNaturalSelection extends JPanel implements ActionListener, KeyL
     }
     public void mouseReleased(MouseEvent e){
         if (i < 10) {
-            Course.obstacles[i + 4] = new Obstacle(x, e.getX(), y, e.getY());
+            int x2 = e.getX();
+            int y2 = e.getY();
+            if (x2 < x) {
+                int tempX = x;
+                x = x2;
+                x2 = tempX;
+            }
+            if (y2 < y) {
+                int tempY = y;
+                y = y2;
+                y2 = tempY;
+            }
+            Course.obstacles[i + 4] = new Obstacle(x, x2, y, y2);
             i++;
         }
     }
