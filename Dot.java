@@ -7,7 +7,7 @@ public class Dot
     public int status = 0;
     public double fitness = 0;
     public int goalX = 250;
-    public int goalY = 45;
+    public int goalY = 35;
     
     public int size = 4;
     
@@ -125,7 +125,7 @@ public class Dot
         double yDistance = yPosition - goalY;
         double distance = Math.sqrt(xDistance*xDistance + yDistance*yDistance) + 1;
         double steps = brain.step;
-        fitness = 1.0/distance/distance;
-        if (status == 1) fitness += 1.0/steps/steps;
+        if (status == 1) fitness = 1 + 1.0/steps/steps;
+        else fitness = 1.0/distance/distance;
     }
 }
